@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
     static String correctNumber_txt;
+    static String name_txt;
+    static String pic_txt;
     TextView guessedNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +20,21 @@ public class Game extends AppCompatActivity {
     protected void doCheck(){
         // get guessed number from textview ...
         String guessed = String.valueOf(guessedNumber.getText());
-        String check = check(correctNumber_txt,guessed)
+        String check = check(correctNumber_txt,guessed);
+        for (int i=0;i<check.length();i++) {
+            char c = check.charAt(i);
+            switch (c){
+                case '0':
+
+                    break;
+                case '1':
+
+                    break;
+                case '2':
+
+                    break;
+            }
+        }
     }
 
     protected String check(String correct, String guess){

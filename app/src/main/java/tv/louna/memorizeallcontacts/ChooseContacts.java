@@ -30,9 +30,11 @@ public class ChooseContacts extends AppCompatActivity {
         });
     }
 
-    protected boolean storeNum(String num) {
+    protected boolean storeNum(String num, String name, String pic) {
         //TODO : store num in pref
         Game.correctNumber_txt = num;
+        Game.name_txt = name;
+        Game.pic_txt = pic;
         return true;
     }
 
@@ -51,8 +53,11 @@ public class ChooseContacts extends AppCompatActivity {
                             Cursor numbers = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId, null, null);
                             while (numbers.moveToNext()) {
                                 String num = numbers.getString(numbers.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                                //Toast.makeText(this, num, Toast.LENGTH_LONG).show();
-                                if (storeNum(num)) {
+                                String name = numbers.getString(numbers.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                                String pic = numbers.getString(numbers.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_URI));
+
+                                //Toast.makeText(this, num + "\n" + name + "\n" + pic + "\n", Toast.LENGTH_LONG).show();
+                                if (storeNum(num, name, pic)) {
                                     Intent fp = new Intent(getApplicationContext(), Game.class);
                                     startActivity(fp);
                                 } else {
