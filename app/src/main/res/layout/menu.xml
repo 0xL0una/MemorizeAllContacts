@@ -67,5 +67,14 @@
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="413dp" />
 
+    <Button
+        android:id="@+id/help_btn"
+        android:layout_width="36dp"
+        android:layout_height="35dp"
+        android:layout_above="@+id/menu_label"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="-60dp"
+        android:text="?" />
+
 
 </RelativeLayout>

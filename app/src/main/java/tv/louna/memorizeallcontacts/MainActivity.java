@@ -19,7 +19,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button startGame, faq, settings;
+    Button startGame, faq, settings, help;
 
     private final static int REQUEST_CODE_ASK_PERMISSION = 1;
     private static final String REQUIRED_SDK_PERMISSION =  Manifest.permission.READ_CONTACTS;
@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         startGame = (Button) findViewById(R.id.start_game_btn);
         faq = (Button) findViewById(R.id.how_to_play_btn);
         settings = (Button) findViewById(R.id.settings_btn);
+        help = (Button)findViewById(R.id.help_btn);
 
         startGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +87,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent fp = new Intent(getApplicationContext(), Settings.class);
+                startActivity(fp);
+            }
+        });
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent fp = new Intent(getApplicationContext(), Faq.class);
                 startActivity(fp);
             }
         });

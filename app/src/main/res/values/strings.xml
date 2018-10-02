@@ -5,7 +5,5 @@
     <string name="choose_contacts_str">Choose Contacts</string>
     <string name="save_str">Save</string>
     <string name="time_limit_str">120</string>
-    <string name="number_contacts_str">5</string>
     <string name="time_limit_label_str">Time limit:</string>
-    <string name="numb_contacts_label_str">Numb. of contacts</string>
 </resources>
