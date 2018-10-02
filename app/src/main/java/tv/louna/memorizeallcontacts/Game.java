@@ -11,4 +11,8 @@ public class Game extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
     }
+    protected String check(){
+
+        return "0100010101";
+    }
 }
