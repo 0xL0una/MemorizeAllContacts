@@ -69,7 +69,7 @@
         android:textSize="30sp" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/enable_sound"
         android:layout_width="75dp"
         android:layout_height="42dp"
         android:layout_alignEnd="@+id/time_limit_edittext"
