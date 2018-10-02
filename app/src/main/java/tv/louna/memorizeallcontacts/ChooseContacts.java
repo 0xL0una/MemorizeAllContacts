@@ -19,7 +19,7 @@ public class ChooseContacts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_contacts);
-        chooseContact = (Button) findViewById(R.id.choose_btn);
+        chooseContact = (Button) findViewById(R.id.choose_contacts_btn);
         chooseContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
