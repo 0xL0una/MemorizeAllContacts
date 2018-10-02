@@ -13,7 +13,8 @@ import android.widget.Toast;
 
 public class ChooseContacts extends AppCompatActivity {
     Button chooseContact;
-    private final int REQUEST_CODE=99;
+    private final int REQUEST_CODE = 99;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +30,9 @@ public class ChooseContacts extends AppCompatActivity {
         });
     }
 
-    protected boolean storeNum(String num){
+    protected boolean storeNum(String num) {
         //TODO : store num in pref
-        Game.correctNumber_txt=num;
+        Game.correctNumber_txt = num;
         return true;
     }
 
@@ -51,10 +52,10 @@ public class ChooseContacts extends AppCompatActivity {
                             while (numbers.moveToNext()) {
                                 String num = numbers.getString(numbers.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                                 //Toast.makeText(this, num, Toast.LENGTH_LONG).show();
-                                if(storeNum(num)){
-                                    Intent fp=new Intent(getApplicationContext(),Game.class);
+                                if (storeNum(num)) {
+                                    Intent fp = new Intent(getApplicationContext(), Game.class);
                                     startActivity(fp);
-                                }else{
+                                } else {
                                     Toast.makeText(this, "Choose a number please !", Toast.LENGTH_LONG).show();
                                 }
                             }
