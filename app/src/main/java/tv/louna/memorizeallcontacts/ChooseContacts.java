@@ -9,25 +9,48 @@ import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.URI;
+
 public class ChooseContacts extends AppCompatActivity {
-    Button chooseContact;
+    Button letsplay;
+    TextView username;
+    ImageView userPic;
     private final int REQUEST_CODE = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_contacts);
-        chooseContact = (Button) findViewById(R.id.choose_contacts_btn);
-        chooseContact.setOnClickListener(new View.OnClickListener() {
+        username = (TextView)findViewById(R.id.username_txt);
+        userPic = (ImageView)findViewById(R.id.user_pic);
+        username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // check contact reads permission
                 Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
                 startActivityForResult(intent, REQUEST_CODE);
             }
         });
+
+        letsplay = (Button) findViewById(R.id.lets_play_btn);
+        letsplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent fp = new Intent(getApplicationContext(), Game.class);
+                startActivity(fp);
+            }
+        });
+    }
+
+    protected void putInformation(String name, String pic){
+        username.setText(name);
+        if(pic != null)
+            userPic.setImageURI(Uri.parse(pic));
+        //else
+        //  set default image ...
     }
 
     protected boolean storeNum(String num, String name, String pic) {
@@ -54,12 +77,11 @@ public class ChooseContacts extends AppCompatActivity {
                             while (numbers.moveToNext()) {
                                 String num = numbers.getString(numbers.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                                 String name = numbers.getString(numbers.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-                                String pic = numbers.getString(numbers.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_URI));
+                                String pic =  numbers.getString(numbers.getColumnIndex(ContactsContract.CommonDataKinds.Photo.PHOTO_URI));
 
                                 //Toast.makeText(this, num + "\n" + name + "\n" + pic + "\n", Toast.LENGTH_LONG).show();
                                 if (storeNum(num, name, pic)) {
-                                    Intent fp = new Intent(getApplicationContext(), Game.class);
-                                    startActivity(fp);
+                                    putInformation(name, pic);
                                 } else {
                                     Toast.makeText(this, "Choose a number please !", Toast.LENGTH_LONG).show();
                                 }
