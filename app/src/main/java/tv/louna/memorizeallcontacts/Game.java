@@ -17,7 +17,7 @@ public class Game extends AppCompatActivity {
 
     protected void doCheck(){
         // get guessed number from textview ...
-        String guessed = guessedNumber.getText();
+        String guessed = String.valueOf(guessedNumber.getText());
         String check = check(correctNumber_txt,guessed)
     }
 
