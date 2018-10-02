@@ -2,13 +2,20 @@ package tv.louna.memorizeallcontacts;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 
 public class Game extends AppCompatActivity {
+    static String correctNumber_txt;
+    TextView correctNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
+        correctNumber=(TextView)findViewById(R.id.number_txt);
+        correctNumber.setText(correctNumber_txt);
+
     }
     protected String check(String correct, String guess){
         if(correct.length() != guess.length())
