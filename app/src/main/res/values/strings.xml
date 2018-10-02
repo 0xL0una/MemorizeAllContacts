@@ -7,5 +7,6 @@
     <string name="time_limit_str">120</string>
     <string name="number_contacts_str">5</string>
     <string name="time_limit_label_str">Time limit:</string>
-    <string name="numb_contacts_label_str">Numb. of contacts</string>
+    <string name="enable_sound_str">Sound</string>
+    <string name="game_header_description">Guess the last 6-digits of Tony\'s number</string>
 </resources>
