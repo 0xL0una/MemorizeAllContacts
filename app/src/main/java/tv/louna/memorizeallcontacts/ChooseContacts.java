@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 import java.net.URI;
 
-public class ChooseContacts extends AppCompatActivity {
+public class ChooseContacts extends Activity {
     Button letsplay;
-    TextView username;
+    TextView username,choose_contact_title;
     ImageView userPic;
     private final int REQUEST_CODE = 99;
 
@@ -25,6 +25,7 @@ public class ChooseContacts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_contacts);
+        //choose_contact_title = (TextView) findViewById(R.id.choose_contact_title);
         username = (TextView)findViewById(R.id.username_txt);
         userPic = (ImageView)findViewById(R.id.user_pic);
         username.setOnClickListener(new View.OnClickListener() {
@@ -39,8 +40,11 @@ public class ChooseContacts extends AppCompatActivity {
         letsplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent fp = new Intent(getApplicationContext(), Game.class);
-                startActivity(fp);
+                if (String.valueOf(username.getText()) != ""){
+                    Intent fp = new Intent(getApplicationContext(), Game.class);
+                    startActivity(fp);
+                }
+
             }
         });
     }
@@ -55,7 +59,8 @@ public class ChooseContacts extends AppCompatActivity {
 
     protected boolean storeNum(String num, String name, String pic) {
         //TODO : store num in pref
-        Game.correctNumber_txt = num;
+        Game.correctNumber_txt = num.replace("(","").replace(")","").replace(" ","").replace("-","");
+        Game.correctNumber_txt = Game.correctNumber_txt.substring(Game.correctNumber_txt.length()-6);
         Game.name_txt = name;
         Game.pic_txt = pic;
         return true;
@@ -91,6 +96,13 @@ public class ChooseContacts extends AppCompatActivity {
                     break;
                 }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent fp = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(fp);
     }
 
 }

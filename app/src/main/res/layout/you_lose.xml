@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/custom_toast_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:background="@drawable/background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,16 +13,16 @@
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="5"
             android:visibility="invisible"/>
 
         <TextView
-            android:id="@+id/choose_contact_title"
+            android:id="@+id/you_lost_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:fontFamily="@font/open_sans_bold"
-            android:text="Choose Contact"
+            android:text="You Lost !"
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="50sp" />
@@ -34,15 +30,13 @@
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="5"
             android:visibility="invisible"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            >
+            android:orientation="horizontal">
 
             <View
                 android:layout_width="0dp"
@@ -50,55 +44,65 @@
                 android:layout_weight="1"
                 android:visibility="invisible"/>
 
-
-            <TextView
-                android:id="@+id/username_txt"
+            <ImageView
+                android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/contact_case"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:textSize="30sp" />
-
+                android:src="@drawable/you_lose_pic" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:visibility="invisible"/>
 
+                android:visibility="invisible"/>
 
         </LinearLayout>
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="5"
 
+            android:visibility="invisible"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:visibility="invisible"/>
-
 
             <Button
-                android:id="@+id/lets_play_btn"
+                android:id="@+id/back_btn"
                 android:layout_width="wrap_content"
-                android:layout_height="58dp"
-                android:layout_marginTop="100dp"
-                android:background="@drawable/play_btn" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back_btn" />
 
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:visibility="invisible"/>
 
+            <Button
+                android:id="@+id/retry_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/retry_btn" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:visibility="invisible"/>
 
         </LinearLayout>
 
@@ -106,9 +110,9 @@
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:visibility="invisible"/>
+            android:layout_weight="7"
 
+            android:visibility="invisible"/>
 
 
 
@@ -116,13 +120,7 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/user_pic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:srcCompat="@tools:sample/avatars[0]" />
+
 
 
 </LinearLayout>
-
-

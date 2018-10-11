@@ -11,18 +11,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+                  android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChooseContacts"> </activity>
-        <activity android:name=".Faq"> </activity>
-        <activity android:name=".Game"> </activity>
-        <activity android:name=".Settings"> </activity>
-        <activity android:name=".YouWin"> </activity>
+        <activity android:name=".ChooseContacts"
+                  android:theme="@android:style/Theme.Black.NoTitleBar"> </activity>
+        <activity android:name=".Faq"
+                  android:theme="@android:style/Theme.Black.NoTitleBar"> </activity>
+        <activity android:name=".Game"
+                  android:theme="@android:style/Theme.Black.NoTitleBar"> </activity>
+        <activity android:name=".Settings"
+                  android:theme="@android:style/Theme.Black.NoTitleBar"> </activity>
+        <activity android:name=".YouWin"
+                  android:theme="@android:style/Theme.Black.NoTitleBar"> </activity>
+        <activity android:name=".YouLose"
+                  android:theme="@android:style/Theme.Black.NoTitleBar"> </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
